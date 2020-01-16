@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     async function loadDevs() {
       const response = await api.get('/devs');
-
       setDevs(response.data);
     }
     loadDevs();
@@ -23,10 +22,7 @@ function App() {
 
   async function handleAddDev(data) {
     const response = await api.post('/devs', data);
-
-    // console.log("atual array de devs? >>> ", devs)
-    const newDev = response.data;
-    setDevs(devs => [...devs, newDev]);
+    setDevs([...devs, response.data.dev]);
   }
 
 
