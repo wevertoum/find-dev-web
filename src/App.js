@@ -17,7 +17,6 @@ function App() {
       const response = await api.get('/devs');
 
       setDevs(response.data);
-      console.log("devs do banco >>>>", response.data)
     }
     loadDevs();
   }, []);
@@ -27,7 +26,7 @@ function App() {
 
     // console.log("atual array de devs? >>> ", devs)
     const newDev = response.data;
-    setDevs([...devs, newDev]);
+    setDevs(devs => [...devs, newDev]);
   }
 
 
